@@ -1,72 +1,73 @@
-README
-===========================
-该文件用来测试和展示书写README的各种markdown语法。GitHub的markdown语法在标准的markdown语法基础上做了扩充，称之为`GitHub Flavored Markdown`。简称`GFM`，GFM在GitHub上有广泛应用，除了README文件外，issues和wiki均支持markdown语法。
+---
+title: markdown基本语法介绍
+date: 2021-06-12 12:12:00
+author: hiyo
+copyright: true
+tags:
+	- markdown
+categories: 
+	- [其它]
+---
 
-****
+主要经常使用typora进行笔记整理，Hexo博客就是使用MarkDown编写的，本文整理常用的Markdown基本语法以及HTML语法。
 
-|作者|果冻虾仁|
-|---|---|
-|知乎|[![zhihu-shield]][zhihu]|
-|公众号|编程往事|
+<!--more-->
 
-
-****
+# MarkDown基本语法
 ## 目录
-* [横线](#横线)
-* [标题](#标题)
-* [文本](#文本)
-    * 普通文本
-    * 单行文本
-    * 多行文本
-    * 文字高亮
-    * 换行
-    * 斜体
-    * 粗体
-    * 删除线
-* [图片](#图片)
-    * 来源于网络的图片
-    * GitHub仓库中的图片
-* [链接](#链接) 
-    * 文字超链接
-        *  链接外部URL
-        *  链接本仓库里的URL
-    *  锚点
+* **[横线](#横线)**
+* **[标题](#标题)**
+* **[段落](#段落)**
+* **[文本](#文本)**
+    * [文字高亮](#文字高亮)
+    * [换行](#换行)
+    * [斜体、粗体、删除线](#斜体、粗体、删除线)
+* **[引用](#引用)**
+    * [引用分段](#引用分段)
+    * [引用嵌套](#引用嵌套)
+    * [引用中使用其它语法](#引用中使用其它语法)
+* **[列表](#列表)**
+    * [无序列表](#无序列表)
+    * [有序列表](#有序列表)
+* **[代码块](#代码块)**
+* **[链接](#链接)** 
+    * [链接格式化](#链接格式化)
     * [图片链接](#图片链接)
-* [列表](#列表)
-    * 无序列表
-    * 有序列表
-    * 复选框列表
-* [块引用](#块引用)
-* [代码高亮](#代码高亮)
-* [表格](#表格) 
-* [表情](#表情)
-* [diff语法](#diff语法)
+    * [参考链接](#参考链接)
+* **[锚点](#锚点)**
+* **[图片](#图片)**
+* **[表格](#表格)**
+    * [对齐](#对齐)
+    * [使用其他语法](#使用其他语法)
+* **[复选框](#复选框)**
+* **[表情](#表情)**
+* **[diff语法](#diff语法)**
+* **[字符转义](#字符转义)**
+* **[HTML](#HTML)**
+* **[typora](#typora)**
+* **[CSDN和博客园图片大小和居中设置](#CSDN和博客园图片大小和居中设置)**
+    * [CSDN](#CSDN)
+    * [博客园](#博客园)
 
 ## 横线
 
 `***、---、___`可以显示横线效果，注意横线前后要加一个空行。
-
-
-***
----
 ___
-
-
 
 标题
 ------
 
 | Markdown        | HTML              |
 | --------------- | ----------------- |
-| # 一级标题      | <h1>一级标题</h1> |
-| ## 二级标题     | <h2>二级标题</h2> |
-| ### 三级标题    | <h3>三级标题</h3> |
-| #### 四级标题   | <h4>四级标题</h4> |
-| ##### 五级标题  | <h5>五级标题</h5> |
-| ###### 六级标题 | <h6>六级标题</h6> |
+| # 一级标题      | `<h1>一级标题</h1>` |
+| ## 二级标题     | `<h2>二级标题</h2>` |
+| ### 三级标题    | `<h3>三级标题</h3>` |
+| #### 四级标题   | `<h4>四级标题</h4>` |
+| ##### 五级标题  | `<h5>五级标题</h5>` |
+| ###### 六级标题 | `<h6>六级标题</h6>` |
 
 一级标题和二级标题也可以分别通过在标题文字下面添加`==`和`--`来实现。`=`和`-`个数大于等于2就可以。
-```
+```markdown
 一级标题 
 ==
 
@@ -83,27 +84,24 @@ ___
 ------
 
 ### 文字高亮
-markdown扩展语法：
-```markdown
-==高亮==
-```
-==高亮==
+可以使用一对反引号来突出部分文字：
 
-也可以使用一对反引号来突出部分文字：
-```
-`linux` 
-```
-效果：`linux` 
+| 语法                                                         | 效果     |
+| ------------------------------------------------------------ | -------- |
+| `==高亮==`：typora中的markdown扩展语法，<br />需要开启才可使用 | ==高亮== |
+| ```linux` ``                                                 | `linux`  |
+
+
 
 ### 换行
 在上一行文本后面补两个空格（大于大于2个空格），  
 这样下一行的文本就换行了。
 
 HTML语法：
-```
-<p>第一行<br>
-第二行</p>
-```
+
+| 语法                          | 效果 |
+| ----------------------------- | ---- |
+| `<p>第一行<br>第二行</p>` | <p>第一行<br/>第二行</p> |
 
 在两行文本直接加一个空行会分段。
 ### 斜体、粗体、删除线
@@ -121,6 +119,7 @@ HTML语法：
 |`**_斜粗体4_**`||**_斜粗体4_**|
 |`***~~斜粗体删除线1~~***`||***~~斜粗体删除线1~~***|
 |`~~***斜粗体删除线2***~~`||~~***斜粗体删除线2***~~|
+|Markdown没有下划线语法|`<u>下划线</u>`|<u>下划线</u>|
 
 斜体、粗体、删除线可混合使用  
 **粗体和斜体建议使用星号**
@@ -179,7 +178,7 @@ HTML语法：
 ## 列表
 ### 无序列表
 无序列表可以使用短横杠 (`-`), 星号 (`*`), 或者加号 (`+`)
-```
+```markdown
 * 不要回答！
 - 不要回答！！
 + 不要回答！！！
@@ -200,7 +199,7 @@ html语法：
 
 
 多级无序列表
-```
+```markdown
 * 不要回答！
     * 不要回答！！
 ```
@@ -210,19 +209,21 @@ html语法：
 
 ### 有序列表
 在数字后面加一个点，再加一个空格。
-```
+
+```markdown
 我是这个世界的一个和平主义者，我首先收到信息是你们文明的幸运，警告你们：
 1. 不要回答！
 2. 不要回答！
 3. 不要回答！！！
 ```
 html语法：
+```html
 <ol>
 <li>First item</li>
 <li>Second item</li>
 <li>Third item</li>
 </ol>
-
+```
 **效果：**
 我是这个世界的一个和平主义者，我首先收到信息是你们文明的幸运，警告你们：  
 1. 不要回答！
@@ -232,7 +233,7 @@ html语法：
 注意：数字可以不按顺序，渲染时会自动按数字顺序列出。
 
 **多级有序列表**
-```
+```markdown
 1. 不要回答！
        1. 不要回答！
 2. 不要回答！！！
@@ -258,9 +259,7 @@ print("hello world")
 echo "hello world" #Bash
 ```
 
-要将文字表示为代码，用单个反引号将其括起来。
-
-例如：`Linux`
+要将文字表示为代码，用单个反引号将其括起来。例如：`Linux`
 
 html语法：
 
@@ -277,33 +276,17 @@ html语法：
 ```
 
 ## 链接
-### 链接外部URL
 
-两种方式：
+**注意**：URL中如果有空格，使用`%20`进行URL编码。
 
-|#|语法|效果|
-|---|----|-----|
-|1|`[CSDN地址](https://blog.csdn.net/u010698107 "悬停显示：我的CSDN博客")`|[CSDN地址](https://blog.csdn.net/u010698107 "悬停显示：我的CSDN博客")|
-|2|`[我的博客][blog] `|[我的博客][blog] |
+链接地址可以是URL链接，也可以是本地文件路径。
 
-[blog]:https://hiyongz.github.io/ "我的博客"
+|#|markdown语法|HTML语法|效果|
+|---|----|-----|---|
+|1|`[CSDN地址](https://blog.csdn.net/u010698107 "悬停显示：我的CSDN博客")`|`<a href="https://blog.csdn.net/u010698107 " title="悬停显示：我的CSDN博客">CSDN地址</a>`|[CSDN地址](csdn.png "悬停显示：我的CSDN博客")|
+|2|`[我的文档](./example/testfile.md)`||[我的文档](./example/testfile.md)|
 
-HTML语法：
-
-```html
-<a href="https://hiyongz.github.io/ " title="我的博客">我的博客</a>
-```
-
-
-
-### 链接本仓库里的URL
-
-|语法|效果|
-|----|-----|
-|`[我的简介](./example/profile.md)`|[我的简介](/example/profile.md)|
-|`[example](./example)`|[example](./example)|
-
-可以直接在URL或者邮箱地址两边加尖括号将地址快速转化为链接：
+也可以直接在URL或者邮箱地址两边加尖括号将地址快速转化为链接：
 
 ```markdown
 <https://blog.csdn.net/u010698107>
@@ -322,165 +305,259 @@ HTML语法：
 
 ```
 
-
-
 ### 图片链接
 
-图片链接[ ]里面则是要显示的图片。  
+图片链接[ ]里面是要显示的图片。  
 
 `````
-[![](/img/csdn.png "我的CSDN")](https://blog.csdn.net/u010698107)
+[![csdn](/img/csdn.png "我的CSDN")](https://blog.csdn.net/u010698107)
 `````
 
-[![](./img/csdn.png "我的CSDN")](https://blog.csdn.net/u010698107)
+| #        | 语法                                                         | 效果                                                         |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| markdown | `[![csdn](https://img-home.csdnimg.cn/images/20201124032511.png "我的CSDN")` | [![csdn](csdn.png "我的CSDN")](https://blog.csdn.net/u010698107) |
+| HTML     | `<a href="https://blog.csdn.net/u010698107" ><img src="https://img-home.csdnimg.cn/images/20201124032511.png"  alt="csdn" title="我的CSDN"></a>` | <a href="https://blog.csdn.net/u010698107" ><img src="csdn.png"  alt="csdn" title="我的CSDN"></a> |
 
 鼠标悬停图标时显示的文字是图片的title
 
-HTML语法：
-```html
-<img src="https://blog.csdn.net/u010698107" alt="我的CSDN" title="我的CSDN">
+
+### 参考链接
+
+参考链接包括两部分：  
+
+- 与文本保持内联的部分
+- 存储在文件其他地方以使文本易于阅读的部分。
+
+```markdown
+[我的博客][blog] 
+[blog]:https://hiyongz.github.io/ "我的博客"
 ```
-### 锚点
+
+效果：[我的博客][blog]
+
+[blog]:https://hiyongz.github.io/ "我的博客"
+
+## 锚点
+
 每一个标题都是一个锚点，和HTML的锚点（`#`）类似，比如我们 
 
-|语法|效果|
-|---|---|
-|`[目录](#目录)`|[目录](#目录)|
+|#|语法|效果|
+|---|---|---|
+|markdown|`[目录](#目录)`|[目录](#目录)|
+|HTML|`<a href="#目录">目录</a>`|<a href="#目录">目录</a>|
+
+
+
 
 ## 图片
-语法格式：
+
+语法：
 ```markdown
 ![alt](URL title)
 ```
-alt和title即对应HTML中的alt和title属性（都可省略）：
+alt和title对应HTML中的alt和title属性（都可省略）：
 - alt表示图片显示失败时的替换文本
-- title表示鼠标悬停在图片时的显示文本（注意这里要加引号）
-
-URL即图片的url地址，如果引用本仓库中的图片，直接使用**相对路径**就可了，如果引用其他github仓库中的图片要注意格式，即：`仓库地址/raw/分支名/图片路径`，如：
-```
-https://github.com/guodongxiaren/ImageCache/raw/master/Logo/foryou.gif
-```
+- title表示鼠标悬停在图片时的显示文本，注意要加引号。
+- URL为图片的url地址，如果引用本仓库中的图片，直接使用**相对路径**。
 
 |#|语法|效果|
 |---|---|----|
-|1|`![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo")`|![baidu](http://www.baidu.com/img/bdlogo.gif "百度logo")
-|2|`![][code-past]`|![][code-past]
+|markdown|`![CSDN](https://img-home.csdnimg.cn/images/20201124032511.png "CSDN logo")`|![CSDN](csdn.png "CSDN logo") |
+|HTML|`<img src="https://img-home.csdnimg.cn/images/20201124032511.png" alt="CSDN" title="CSDN logo">`|<img src="csdn.png" alt="CSDN" title="CSDN logo"> |
 
-注意例2的写法使用了**URL标识符**的形式，在[链接](#链接)一节有介绍。
->在文末有code-past的定义：
+
+## 表格
+```markdown
+| 表头1 | 表头2 | 表头3 |
+| ----- | ----- | ----- |
+| value | value | value |
+| value | value | value |
 ```
-[code-past]:/img/codepast-logo.jpg "公众号：编程往事"
-```
 
-
-## 复选框列表
-#### 语法
-```
-- [x] 需求分析
-- [x] 系统设计
-- [x] 详细设计
-- [ ] 编码
-- [ ] 测试
-- [ ] 交付
-```
-#### 效果
-
-- [x] 需求分析
-- [x] 系统设计
-- [x] 详细设计
-- [ ] 编码
-- [ ] 测试
-- [ ] 交付
-
-您可以使用这个功能来标注某个项目各项任务的完成情况。
-> Tip:
->
-> > 在GitHub的**issue**中使用该语法是可以实时点击复选框来勾选或解除勾选的，而无需修改issue原文。
-
-
-
-
-
-
-
-
-表格
---------
-
-表头1  | 表头2|
---------- | --------|
-表格单元  | 表格单元 |
-表格单元  | 表格单元 |
-
-| 表头1  | 表头2|
-| ---------- | -----------|
-| 表格单元   | 表格单元   |
-| 表格单元   | 表格单元   |
 
 ### 对齐
-表格可以指定对齐方式
-
-| 左对齐 | 居中  | 右对齐 |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
-
-### 混合其他语法
-表格单元中的内容可以和其他大多数GFM语法配合使用，如：  
-#### 使用普通文本的删除线，斜体等效果
-
-| 名字 | 描述 |
-| ------------- | ----------- |
-| Help      | ~~Display the~~ help window.|
-| Close     | _Closes_ a window     |
-
-#### 表格中嵌入图片（链接）
-其实前面介绍图片显示、图片链接的时候为了清晰就是放在在表格中显示的。
-
-| 图片 | 描述 |
-| ---- | ---- |
-|![baidu][baidu-logo] | 百度|
-
-表情
-----------
-Github的Markdown语法支持添加emoji表情，输入不同的符号码（两个冒号包围的字符）可以显示出不同的表情。
-
-比如`:blush:`，可以显示:blush:。
-
-具体每一个表情的符号码，可以查询GitHub的官方网页[http://www.emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com)。
-
-但是这个网页每次都打开**奇慢**。。所以我整理到了本repo中，大家可以直接在此查看[emoji](./emoji.md)。
-
-diff语法
----------
-版本控制的系统中都少不了diff的功能，即展示一个文件内容的增加与删除。
-GFM中可以显示的展示diff效果。使用绿色表示新增，红色表示删除。
-#### 语法
-其语法与代码高亮类似，只是在三个反引号后面写diff，
-并且其内容中，可以用 `+ `开头表示新增，`- `开头表示删除。
-另外还有有 `!`和`#`的语法。
-
-#### 效果
-
-```diff
-+ 人闲桂花落，
-- 夜静春山空。
-! 月出惊山鸟，
-# 时鸣春涧中。
+指定对齐方式
+```markdown
+| 左对齐 |   居中    | 右对齐 |
+| :---- |:---------:| -----:|
+|  left |  entered  | right |
+|  left | centered  | right |
+|  left | centered  | right |
 ```
 
---------------------------------
-[csdn]:http://blog.csdn.net/guodongxiaren "我的博客"
-[zhihu]:https://www.zhihu.com/people/guodongxiaren "我的知乎，欢迎关注"
-[weibo]:http://weibo.com/linpiaochen
-[baidu-logo]:http://www.baidu.com/img/bdlogo.gif "百度logo"
-[weibo-logo]:D:/ProgramWorkspace/README/img/weibo.png "点击图片进入我的微博"
-[csdn-logo]:./img/csdn.png "我的CSDN博客"
-[code-past]:/img/codepast-logo.jpg "公众号：编程往事"
-[zhihu-shield]:https://img.shields.io/badge/dynamic/json?color=0084ff&logo=zhihu&label=%E6%9E%9C%E5%86%BB%E8%99%BE%E4%BB%81&query=%24.data.totalSubs&url=https%3A%2F%2Fapi.spencerwoo.com%2Fsubstats%2F%3Fsource%3Dzhihu%26queryKey%3Dguodongxiaren
+效果：
+
+| 左对齐 |   居中    | 右对齐 |
+| :---- |:---------:| -----:|
+|  left |  entered  | right |
+|  left | centered  | right |
+|  left | centered  | right |
+
+### 使用其他语法
+表格单元中的内容可以可以使用其Markdown语法，如：  加粗、斜体、删除线等
+
+| 表头1 |  表头2  |
+| :---: |:---------:|
+| <u>下划线</u> |  **加粗**  |
+| ***斜体加粗*** | _斜体_ |
+| `代码` | ~~~删除线~~~ |
+
+## 复选框
+
+语法：
+
+```markdown
+- [x] Python
+- [ ] Java
+```
+效果：
+
+- [x] Python
+- [ ] Java
+
+可以点击复选框来勾选或解除勾选，如果想要固定它，使它不可勾选，可以使用HTML语法：
+
+```html
+<p><input type="checkbox" name="category" checked disabled/> Python </p>
+<p><input type="checkbox" name="category" disabled/> Java </p>
+```
+
+<p><input type="checkbox" name="category" checked disabled/> Python </p>
+<p><input type="checkbox" name="category" disabled/> Java </p>
+
+## 表情
+
+Github的Markdown语法支持添加emoji表情，每个表情对应一个符号码（两个冒号包围的字符），比如`:laughing:`，:laughing:
+
+所有支持的表情符号码，可以查询网页：[http://www.emoji-cheat-sheet.com](http://www.emoji-cheat-sheet.com)。
+
+下面举几个例子：
+
+|   语法   | 图标  |   语法   | 图标 |    语法    |  图标 |
+| :--------: | :------: | :--------: | :------: | :----------: | :--------: |
+| `:heart_eyes:` | :heart_eyes: | `:smile:`  | :smile:  | `:laughing:` | :laughing: |
+| `:blush:`  | :blush:  | `:smiley:` | :smiley: | `:relaxed:`  | :relaxed:  |
+|`:sunny:`|:sunny:|`:umbrella:`|:umbrella:|`:cloud:`|:cloud:|
+|`:snowflake:`|:snowflake:|`:snowman:`|:snowman:|`:zap:`|:zap:|
+|`:bamboo:`|:bamboo:|`:gift_heart:`|:gift_heart:|`:dolls:`|:dolls:|
+|`:school_satchel:`|:school_satchel:|`:mortar_board:`|:mortar_board:|`:flags:`|:flags:|
+|`:house:`|:house:|`:house_with_garden:`|:house_with_garden:|`:school:`|:school:|
+|`:office:`|:office:|`:post_office:`|:post_office:|`:hospital:`|:hospital:|
+|`:one:`|:one:|`:two:`|:two:|`:three:`|:three:|
+|`:four:`|:four:|`:five:`|:five:|` :six:`| :six:|
+
+## diff语法
+
+GitHub 风格标记中的差异格式，在三个反引号后面写diff，内容中， `+ `开头表示新增，`- `开头表示删除。
+
+```diff
+-oldLine 
++newLine 
+```
+
+## 字符转义
+如果要显示用于格式化Markdown文档的特殊字符，需要使用反斜杠（`\`）进行转义。
+
+| Character |
+| --------- |
+| \         |
+| `         |
+| *         |
+| _         |
+| { }       |
+| [ ]       |
+| < >       |
+| ( )       |
+| #         |
+| +         |
+| -         |
+| .         |
+| !         |
+| \|        |
+
+
+## HTML
+在前面介绍的Markdown语法中，我也列出了对应的HTML语法格式，许多Markdown应用都支持在Markdown文本中使用HTML语法。
+
+有些时候HTML语法更好用，在需要更改元素的属性时，比如指定文本的颜色或更改图像的大小，需要使用到HTML语法。
+
+| 语法                                                         | 效果                                                         |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `<img src="./img/wechat.png" style="zoom:10%;"/>`            | <img src="wechat.png" style="zoom:10%;" />                   |
+| `<center><font size="2">https://blog.csdn.net/u010698107</font></center>` | <center><font size="2">https://blog.csdn.net/u010698107</font></center> |
+| `<font color="red">红色</font>`                              | <font color="red">红色</font>                                |
+| `<div style="color:red">蓝色</div>`                          | <div style="color:blue">蓝色</div>                           |
+
+<div style="color:blue">蓝色</div>
+
+<center><font size="2">https://blog.csdn.net/u010698107</font></center>
+
+## typora
+
+typora是一个Markdown编辑器，我在[typora主题配置：公众号一键排版](https://blog.csdn.net/u010698107/article/details/117059599)中介绍了它的CSS样式使用方法，下面介绍一下typora的快捷键。
+
+| 快捷键          | 说明         |
+| --------------- | ------------ |
+| ctrl+=          | 提高标题级别 |
+| ctrl+-          | 降低标题级别 |
+| ctrl+数字(1-6)  | 1-6级标题    |
+| ctrl + B        | 加粗         |
+| ctrl + I        | 斜体         |
+| ctrl + U        | 下划线       |
+| alt + shift+ 5  | 删除线       |
+| ctrl + shift+ [ | 有序列表     |
+| ctrl + shift+ ] | 无序列表     |
+| ctrl + shift+ K | 多行代码块   |
+| ctrl + shift+ I | 插入图片     |
+| ctrl + K        | 链接         |
+| ctrl + T        | 插入表格     |
+
+## CSDN和博客园图片大小和居中设置
+
+### CSDN
+
+设置图片大小，在图片url后面添加
+
+```markdown
+#pic_left 
+#pic_center
+#pic_right
+```
+```markdown
+![](https://img-blog.csdnimg.cn/img_convert/74dad4531df32c064c411b63dec66db1.png#pic_center =300x)
+```
+- =300x：指定宽为300，不指定高，自动缩放
+- 如果要指定宽和高：=300x100
+- 注意=前面有空格
+
+### 博客园
+语法：
+```markdown
+<div align=center>
+<img src="https://img2020.cnblogs.com/blog/2229336/202105/2229336-20210519222822372-875961918.png" width="40%" height="40%">
+</div>
+```
+
+```text
+align=center # 居中
+align=left # 左对齐
+align=right # 右对齐
+```
+
+****
+
+|作者|hiyongz|
+|---|---|
+|个人博客|[博客地址](https://hiyongz.github.io/)|
+|CSDN博客|[CSDN](https://blog.csdn.net/u010698107)|
+|博客园|[博客园](https://www.cnblogs.com/hiyong/)|
+|微信公众号|<img src="wechat.png" style="zoom:10%;" />|
+
+
+****
+
+
+<center><b>--THE END--<b></center>
 
 
 
-[csdn\]]: 
-[csdn\]]: 
